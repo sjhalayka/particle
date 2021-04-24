@@ -37,13 +37,13 @@ int mouse_y = 0;
 vector_3 background_colour(1.0, 1.0, 1.0);
 
 
-vector_3 test_particle_pos(0, 4, 0);
+vector_3 test_particle_pos(0, 20, 0);
 float test_particle_radius = 0.125f;
 
 vector<vector_3> ray_dirs;
 vector<vector_3> intersection_positions;
 
-size_t num_rays = 1000000;
+size_t num_rays = 10000000;
 
 
 
