@@ -2,7 +2,6 @@
 
 
 
-enum program_mode { sphere_mode, circle_mode, beam_mode };
 
 
 
@@ -18,10 +17,11 @@ int main(int argc, char** argv)
 	//glutMotionFunc(motion_func);
 	//glutPassiveMotionFunc(passive_motion_func);
 
+	enum program_mode { sphere_mode, circle_mode, beam_mode };
 
-	//program_mode mode = sphere_mode;
+	program_mode mode = sphere_mode;
 	//program_mode mode = circle_mode;
-	program_mode mode = beam_mode;
+	//program_mode mode = beam_mode;
 
 	for (size_t i = 0; i < num_rays; i++)
 	{
