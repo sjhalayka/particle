@@ -76,24 +76,8 @@ int main(int argc, char** argv)
 
 	cout << "Interaction strength: " << fixed << endl;
 
-	double interaction_strength = 0;
-
-	if (mode == sphere_mode)
-	{
-		// 3D, 1/r^2 falloff
-		interaction_strength = intersection_positions.size() * test_particle_pos.self_dot() / static_cast<double>(num_rays);
-	}
-	else if (mode == circle_mode)
-	{
-		// 2D, 1/r falloff
-		interaction_strength = intersection_positions.size() * test_particle_pos.length() / static_cast<double>(num_rays);
-	}
-	else if (mode == beam_mode)
-	{
-		// 1D, no falloff
-		interaction_strength = intersection_positions.size() / static_cast<double>(num_rays);
-	}
-		
+	double interaction_strength = intersection_positions.size() / static_cast<double>(num_rays);
+	
 	cout << interaction_strength << endl;
 
 	cout << "Inverse interaction strength: " << fixed << endl;
