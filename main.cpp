@@ -19,8 +19,8 @@ int main(int argc, char** argv)
 
 	enum program_mode { sphere_mode, circle_mode, beam_mode };
 
-//	program_mode mode = sphere_mode;
-	program_mode mode = circle_mode;
+	program_mode mode = sphere_mode;
+	//program_mode mode = circle_mode;
 	//program_mode mode = beam_mode;
 
 //	srand(0);
@@ -76,25 +76,29 @@ int main(int argc, char** argv)
 
 	cout << "Interaction constant: " << fixed << endl;
 
+	double interaction_constant = 0;
+
 	if (mode == sphere_mode)
 	{
 		// 3D, 1/r^2 falloff
-		cout << intersection_positions.size() * test_particle_pos.self_dot() / static_cast<double>(num_rays) << endl;
+		interaction_constant = intersection_positions.size() * test_particle_pos.self_dot() / static_cast<double>(num_rays);
 	}
 	else if (mode == circle_mode)
 	{
 		// 2D, 1/r falloff
-		cout << intersection_positions.size() * test_particle_pos.length() / static_cast<double>(num_rays) << endl;
+		interaction_constant = intersection_positions.size() * test_particle_pos.length() / static_cast<double>(num_rays);
 	}
 	else if (mode == beam_mode)
 	{
 		// 1D, no falloff
-		cout << intersection_positions.size() / static_cast<double>(num_rays) << endl;
+		interaction_constant = intersection_positions.size() / static_cast<double>(num_rays);
 	}
+		
+	cout << interaction_constant << endl;
 
+	cout << "Inverse interaction constant: " << fixed << endl;
 
-
-
+	cout << 1.0/interaction_constant << endl;
 
 	//glutMainLoop();
 
