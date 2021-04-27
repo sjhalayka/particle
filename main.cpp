@@ -19,9 +19,11 @@ int main(int argc, char** argv)
 
 	enum program_mode { sphere_mode, circle_mode, beam_mode };
 
-	program_mode mode = sphere_mode;
-	//program_mode mode = circle_mode;
+//	program_mode mode = sphere_mode;
+	program_mode mode = circle_mode;
 	//program_mode mode = beam_mode;
+
+//	srand(0);
 
 	for (size_t i = 0; i < num_rays; i++)
 	{
@@ -72,22 +74,22 @@ int main(int argc, char** argv)
 		}
 	}
 
-	cout << fixed << intersection_positions.size() / static_cast<double>(num_rays) << endl;
+	cout << "Interaction constant: " << fixed << endl;
 
 	if (mode == sphere_mode)
 	{
-		// 3D
-		cout << intersection_positions.size() * test_particle_pos.self_dot() << endl;
+		// 3D, 1/r^2 falloff
+		cout << intersection_positions.size() * test_particle_pos.self_dot() / static_cast<double>(num_rays) << endl;
 	}
 	else if (mode == circle_mode)
 	{
-		// 2D
-		cout << intersection_positions.size() * test_particle_pos.length() << endl;
+		// 2D, 1/r falloff
+		cout << intersection_positions.size() * test_particle_pos.length() / static_cast<double>(num_rays) << endl;
 	}
 	else if (mode == beam_mode)
 	{
-		// 1D
-		cout << intersection_positions.size() << endl;
+		// 1D, no falloff
+		cout << intersection_positions.size() / static_cast<double>(num_rays) << endl;
 	}
 
 
