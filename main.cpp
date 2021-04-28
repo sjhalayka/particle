@@ -25,6 +25,8 @@ int main(int argc, char** argv)
 
 //	srand(0);
 
+	size_t intersection_count = 0;
+
 	for (size_t i = 0; i < num_rays; i++)
 	{
 		double u = rand() / static_cast<double>(RAND_MAX);
@@ -59,7 +61,7 @@ int main(int argc, char** argv)
 			pos.z = 0;
 		}
 
-		ray_dirs.push_back(pos);
+		//ray_dirs.push_back(pos);
 
 		float t = 0;
 
@@ -70,13 +72,14 @@ int main(int argc, char** argv)
 			test_particle_radius,
 			t))
 		{
-			intersection_positions.push_back(ray_dirs[i] * t);
+			//intersection_positions.push_back(ray_dirs[i] * t);
+			intersection_count++;
 		}
 	}
 
 	cout << "Interaction strength: " << fixed << endl;
 
-	double normalized_interaction_strength = intersection_positions.size() / static_cast<double>(num_rays);
+	double normalized_interaction_strength = intersection_count / static_cast<double>(num_rays);
 		
 	cout << normalized_interaction_strength << endl;
 

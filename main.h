@@ -36,13 +36,13 @@ int mouse_y = 0;
 
 vector_3 background_colour(1.0, 1.0, 1.0);
 
-vector_3 test_particle_pos(0, 20, 0);
+vector_3 test_particle_pos(0, 10, 0);
 float test_particle_radius = 1;
 
-vector<vector_3> ray_dirs;
-vector<vector_3> intersection_positions;
+//vector<vector_3> ray_dirs;
+//vector<vector_3> intersection_positions;
 
-size_t num_rays = 10000000;
+size_t num_rays = 100000000;
 
 
 
@@ -160,16 +160,16 @@ void display_func(void)
 	glutSolidSphere(test_particle_radius, 16, 16);
 	glPopMatrix();
 
-	glBegin(GL_POINTS);
+	//glBegin(GL_POINTS);
 
-	glPointSize(2.0);
+	//glPointSize(2.0);
 
-	glColor3f(1, 0, 0);
+	//glColor3f(1, 0, 0);
 
-	for (size_t i = 0; i < intersection_positions.size(); i++)
-		glVertex3d(intersection_positions[i].x, intersection_positions[i].y, intersection_positions[i].z);
+	//for (size_t i = 0; i < intersection_positions.size(); i++)
+	//	glVertex3d(intersection_positions[i].x, intersection_positions[i].y, intersection_positions[i].z);
 
-	glEnd();
+	//glEnd();
 
 
 	//glEnable(GL_ALPHA);
