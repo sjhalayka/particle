@@ -76,13 +76,13 @@ int main(int argc, char** argv)
 
 	cout << "Interaction strength: " << fixed << endl;
 
-	double interaction_strength = intersection_positions.size() / static_cast<double>(num_rays);
-	
-	cout << interaction_strength << endl;
+	double normalized_interaction_strength = intersection_positions.size() / static_cast<double>(num_rays);
+		
+	cout << normalized_interaction_strength << endl;
 
 	cout << "Inverse interaction strength: " << fixed << endl;
 
-	cout << 1.0/ interaction_strength << endl;
+	cout << 1.0/ normalized_interaction_strength << endl;
 
 	//glutMainLoop();
 
