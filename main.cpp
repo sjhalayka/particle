@@ -19,8 +19,8 @@ int main(int argc, char** argv)
 
 	enum program_mode { sphere_mode, circle_mode, beam_mode };
 
-	program_mode mode = sphere_mode;
-	//program_mode mode = circle_mode;
+	//program_mode mode = sphere_mode;
+	program_mode mode = circle_mode;
 	//program_mode mode = beam_mode;
 
 //	srand(0);
@@ -98,7 +98,9 @@ int main(int argc, char** argv)
 		interaction_constant = normalized_interaction_strength;
 	}
 
-	cout << interaction_constant << endl;
+
+	cout << "normalized interaction strength: " << normalized_interaction_strength << endl;
+	cout << "interaction constant: " << interaction_constant << endl;
 
 
 	//glutMainLoop();
