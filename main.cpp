@@ -77,31 +77,28 @@ int main(int argc, char** argv)
 		}
 	}
 
-	cout << "Interaction strength: " << fixed << endl;
+	cout << "Interaction strength: " << endl;
 
 	double normalized_interaction_strength = intersection_count / static_cast<double>(num_rays);
-	
-	float interaction_constant = 0;
+	double interaction_constant = 0;
 	
 	if (mode == sphere_mode)
 	{
 		// 3D, 1/r^2 falloff
-		interaction_constant = intersection_count * test_particle_pos.self_dot() / static_cast<double>(num_rays);
+		interaction_constant = normalized_interaction_strength * test_particle_pos.self_dot();
 	}
 	else if (mode == circle_mode)
 	{
 		// 2D, 1/r falloff
-		interaction_constant = intersection_count * test_particle_pos.length() / static_cast<double>(num_rays);
+		interaction_constant = normalized_interaction_strength * test_particle_pos.length();
 	}
 	else if (mode == beam_mode)
 	{
 		// 1D, no falloff
-		interaction_constant = intersection_count / static_cast<double>(num_rays);
+		interaction_constant = normalized_interaction_strength;
 	}
 
 	cout << interaction_constant << endl;
-
-
 
 
 	//glutMainLoop();
