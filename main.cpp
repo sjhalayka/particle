@@ -1,6 +1,10 @@
 #include "main.h"
 
 
+
+
+
+
 int main(int argc, char** argv)
 {
 	//glutInit(&argc, argv);
@@ -73,12 +77,28 @@ int main(int argc, char** argv)
 		}
 	}
 
-	cout << "Interaction strength: " << endl;
-
 	double normalized_interaction_strength = intersection_count / static_cast<double>(num_rays);
+	//double interaction_constant = 0;
+	//
+	//if (mode == sphere_mode)
+	//{
+	//	// 3D, 1/r^2 falloff
+	//	interaction_constant = normalized_interaction_strength * test_particle_pos.self_dot();
+	//}
+	//else if (mode == circle_mode)
+	//{
+	//	// 2D, 1/r falloff
+	//	interaction_constant = normalized_interaction_strength * test_particle_pos.length();
+	//}
+	//else if (mode == beam_mode)
+	//{
+	//	// 1D, no falloff
+	//	interaction_constant = normalized_interaction_strength;
+	//}
 
 	cout << "normalized interaction strength: " << normalized_interaction_strength << endl;
-	cout << "inverse normalized interaction strength: " << 1.0/normalized_interaction_strength << endl;
+	cout << "inverse interaction strength: " << 1.0/normalized_interaction_strength << endl;
+	//cout << "interaction constant: " << interaction_constant << endl;
 
 
 
