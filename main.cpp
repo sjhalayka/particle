@@ -7,20 +7,20 @@
 
 int main(int argc, char** argv)
 {
-	//glutInit(&argc, argv);
-	//init_opengl(win_x, win_y);
-	//glutReshapeFunc(reshape_func);
-	//glutIdleFunc(idle_func);
-	//glutDisplayFunc(display_func);
-	//glutKeyboardFunc(keyboard_func);
-	//glutMouseFunc(mouse_func);
-	//glutMotionFunc(motion_func);
-	//glutPassiveMotionFunc(passive_motion_func);
+	glutInit(&argc, argv);
+	init_opengl(win_x, win_y);
+	glutReshapeFunc(reshape_func);
+	glutIdleFunc(idle_func);
+	glutDisplayFunc(display_func);
+	glutKeyboardFunc(keyboard_func);
+	glutMouseFunc(mouse_func);
+	glutMotionFunc(motion_func);
+	glutPassiveMotionFunc(passive_motion_func);
 
 	enum program_mode { sphere_mode, circle_mode, beam_mode };
 
-	//program_mode mode = sphere_mode;
-	program_mode mode = circle_mode;
+	program_mode mode = sphere_mode;
+	//program_mode mode = circle_mode;
 	//program_mode mode = beam_mode;
 
 //	srand(0);
@@ -61,7 +61,7 @@ int main(int argc, char** argv)
 			pos.z = 0;
 		}
 
-		//ray_dirs.push_back(pos);
+		ray_dirs.push_back(pos);
 
 		float t = 0;
 
@@ -72,7 +72,7 @@ int main(int argc, char** argv)
 			test_particle_radius,
 			t))
 		{
-			//intersection_positions.push_back(ray_dirs[i] * t);
+			intersection_positions.push_back(ray_dirs[i] * t);
 			intersection_count++;
 		}
 	}
@@ -102,9 +102,9 @@ int main(int argc, char** argv)
 
 
 
-	//glutMainLoop();
+	glutMainLoop();
 
-	//glutDestroyWindow(win_id);
+	glutDestroyWindow(win_id);
 
 	return 0;
 }

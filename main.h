@@ -39,8 +39,8 @@ vector_3 background_colour(1.0, 1.0, 1.0);
 vector_3 test_particle_pos(0, 100, 0);
 float test_particle_radius = 1;
 
-//vector<vector_3> ray_dirs;
-//vector<vector_3> intersection_positions;
+vector<vector_3> ray_dirs;
+vector<vector_3> intersection_positions;
 
 size_t num_rays = 10000000;
 
@@ -155,21 +155,30 @@ void display_func(void)
 
 	glDisable(GL_LIGHTING);
 
+	glColor3f(0, 1, 0);
+
 	glPushMatrix();
 	glTranslated(test_particle_pos.x, test_particle_pos.y, test_particle_pos.z);
 	glutSolidSphere(test_particle_radius, 16, 16);
 	glPopMatrix();
 
-	//glBegin(GL_POINTS);
+	glColor3f(0, 0.5, 1);
 
-	//glPointSize(2.0);
+	glPushMatrix();
+	glTranslated(0, 0, 0);
+	glutSolidSphere(0.25, 16, 16);
+	glPopMatrix();
 
-	//glColor3f(1, 0, 0);
+	glBegin(GL_POINTS);
 
-	//for (size_t i = 0; i < intersection_positions.size(); i++)
-	//	glVertex3d(intersection_positions[i].x, intersection_positions[i].y, intersection_positions[i].z);
+	glPointSize(4.0);
 
-	//glEnd();
+	glColor3f(1, 0, 0);
+
+	for (size_t i = 0; i < intersection_positions.size(); i++)
+		glVertex3d(intersection_positions[i].x, intersection_positions[i].y, intersection_positions[i].z);
+
+	glEnd();
 
 
 	//glEnable(GL_ALPHA);
@@ -202,29 +211,29 @@ void display_func(void)
 
 	glLineWidth(3);
 
-	glBegin(GL_LINES);
+	//glBegin(GL_LINES);
 
-	//glColor4f(0, 0, 0, 0.5);
+	////glColor4f(0, 0, 0, 0.5);
 
-	glColor4f(1, 0, 0, 0.125);
-	glVertex3f(0, 0, 0);
-	glVertex3f(4, 0, 0);
-	glColor4f(0, 1, 0, 0.125);
-	glVertex3f(0, 0, 0);
-	glVertex3f(0, 4, 0);
-	glColor4f(0, 0, 1, 0.125);
-	glVertex3f(0, 0, 0);
-	glVertex3f(0, 0, 4);
-
-	//glColor4f(0, 0, 0, 0.25);
+	//glColor4f(1, 0, 0, 0.125);
 	//glVertex3f(0, 0, 0);
-	//glVertex3f(-1, 0, 0);
+	//glVertex3f(4, 0, 0);
+	//glColor4f(0, 1, 0, 0.125);
 	//glVertex3f(0, 0, 0);
-	//glVertex3f(0, -1, 0);
+	//glVertex3f(0, 4, 0);
+	//glColor4f(0, 0, 1, 0.125);
 	//glVertex3f(0, 0, 0);
-	//glVertex3f(0, 0, -1);
+	//glVertex3f(0, 0, 4);
 
-	glEnd();
+	////glColor4f(0, 0, 0, 0.25);
+	////glVertex3f(0, 0, 0);
+	////glVertex3f(-1, 0, 0);
+	////glVertex3f(0, 0, 0);
+	////glVertex3f(0, -1, 0);
+	////glVertex3f(0, 0, 0);
+	////glVertex3f(0, 0, -1);
+
+	//glEnd();
 
 	glDisable(GL_BLEND);
 	glDisable(GL_ALPHA);
